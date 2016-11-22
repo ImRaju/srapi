@@ -1,0 +1,84 @@
+doctype html
+html
+  head
+    title Curriculum Vitae
+    meta(name='viewport', content='width=device-width')
+    meta(name='description', content='The Curriculum Vitae of Joe Bloggs.')
+    meta(charset='UTF-8')
+    link(type='text/css', rel='stylesheet', href='http://#{info.host}:#{info.port}/style.css')
+    link(href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300', rel='stylesheet', type='text/css')
+    //if lt IE 9
+      script(src='//html5shiv.googlecode.com/svn/trunk/html5.js')
+  body#top
+    #cv.instaFade
+      .mainDetails
+        if info.pic
+          #headshot.quickFade
+            img(src='#{info.pic}', alt='Alan Smith')
+        #name
+          h1.quickFade.delayTwo #{info.name}
+          h2.quickFade.delayThree #{info.title}
+        #contactDetails.quickFade.delayFour
+          ul
+            li
+              | e: 
+              a(href='mailto:joe@bloggs.com', target='_blank') #{info.email}
+            li
+              | w: 
+              a(href='http://www.bloggs.com') www.bloggs.com
+            li m: #{info.phone}
+        .clear
+      #mainArea.quickFade.delayFive
+        section
+          article
+            .sectionTitle
+              h1 Objective
+            .sectionContent
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.
+          .clear
+        if info.experience
+          section
+            .sectionTitle
+              h1 Experience
+            .sectionContent
+              each exp in info.experience
+                article
+                  h2 #{exp.title} at #{exp.company}
+                  p.subDetails #{exp.from.toDateString()} - #{exp.upto.toDateString()}
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.
+            .clear
+        if info.skills
+          section
+            .sectionTitle
+              h1 Key Skills
+            .sectionContent
+              ul.keySkills
+                each skill in info.skills
+                  li #{skill.code}
+            .clear
+        if info.education
+          section
+            .sectionTitle
+              h1 Education
+            .sectionContent
+              each edu in info.education
+                article
+                  h2 #{edu.school}
+                  p.subDetails #{edu.course}
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.
+            .clear
+        if info.project
+          section
+            .sectionTitle
+              h1 Project
+            .sectionContent
+              each pro in info.project
+                article
+                  h2 #{pro.project}
+                  p.subDetails #{pro.from.toDateString()} - #{pro.upto.toDateString()}
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.
+            .clear

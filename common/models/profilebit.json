@@ -1,0 +1,36 @@
+{
+  "name": "profilebit",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "required": true,
+      "comments": "dimension"
+    },
+    "routine": {
+      "type": "object"
+    },
+    "meta": {
+      "type": "object"
+    },
+    "skills": {
+      "type": [
+        "skillbit"
+      ]
+    },
+    "language": {
+      "type": [
+        "langbit"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
